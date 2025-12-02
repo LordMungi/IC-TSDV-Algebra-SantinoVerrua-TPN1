@@ -2,6 +2,7 @@
 #include "raylib.h"
 #include "Polygon.h"
 #include "Point.h"
+#include "Collision.h"
 
 //------------------------------------------------------------------------------------
 //							Instrucciones
@@ -227,7 +228,7 @@ void main()
 					{
 						for (int j = 0; j < polygon.size() - 1; j++) {
 
-							if (CheckCollisionLines(polygon.getPoints()[j], polygon.getPoints()[j + 1], currentPolygon.getPoints()[i], currentPolygon.getPoints()[i + 1], collision)) {
+							if (collision::lineLine(polygon.getPoints()[j], polygon.getPoints()[j + 1], currentPolygon.getPoints()[i], currentPolygon.getPoints()[i + 1], collision)) {
 
 								collisionColor.r = (currentPolygon.getColor().r / 2) + (polygon.getColor().r / 2);
 								collisionColor.g = (currentPolygon.getColor().g / 2) + (polygon.getColor().g / 2);

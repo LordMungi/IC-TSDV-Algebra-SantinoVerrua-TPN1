@@ -139,10 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Polygon.cpp" />
     <ClCompile Include="TP01_Algebra_Lia_Verrua_Caparroz.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Collision.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Polygon.h" />
   </ItemGroup>
