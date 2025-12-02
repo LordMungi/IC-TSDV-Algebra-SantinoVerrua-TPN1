@@ -24,4 +24,41 @@ namespace collision
 		}
 		return false;
 	}
+
+	bool pointLine(Vector2 point, Vector2 lineStart, Vector2 lineEnd)
+	{
+		Vector2 distanceStart = lineStart - point;
+		float lengthStart = sqrtf(distanceStart.x * distanceStart.x + distanceStart.y * distanceStart.y);
+
+		Vector2 distanceEnd = lineEnd - point;
+		float lengthEnd = sqrtf(distanceEnd.x * distanceEnd.x + distanceEnd.y * distanceEnd.y);
+
+		Vector2 distance = lineStart - lineEnd;
+		float length = sqrtf(distance.x * distance.x + distance.y * distance.y);
+
+
+		float buffer = 0.01f;
+
+		return lengthStart + lengthEnd >= length - buffer && lengthStart + lengthEnd <= length + buffer;
+	}
+
+	bool circleLine(Vector2 center, float radius, Vector2 lineStart, Vector2 lineEnd)
+	{
+		Vector2 distance = lineEnd - lineStart;
+		float lengthSq = distance.x * distance.x + distance.y * distance.y;
+
+		Vector2 lineStartCircle = center - lineStart;
+
+		float dot = (lineStartCircle.x * distance.x + lineStartCircle.y * distance.y) / lengthSq;
+
+		Vector2 closest = lineStart + (Vector2Scale(lineEnd - lineStart, dot));
+
+		if (!pointLine(closest, lineStart, lineEnd))
+			return false;
+
+		Vector2 distCircle = closest - center;
+		float distVector = distCircle.x * distCircle.x + distCircle.y * distCircle.y;
+
+		return distVector <= radius * radius;
+	}
 }

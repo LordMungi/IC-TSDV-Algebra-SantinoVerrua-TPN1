@@ -114,7 +114,7 @@ void main()
 
 					for (int j = 0; j < polygons[i].getPoints().size() - 1; j++) {
 
-						if (CheckCollisionCircleLine(mouse, 15, polygons[i].getPoints()[j], polygons[i].getPoints()[j + 1])) {
+						if (collision::circleLine(mouse, 15, polygons[i].getPoints()[j], polygons[i].getPoints()[j + 1])) {
 
 							selectedPolygon = &polygons[i];
 							std::cout << "Id: " << selectedPolygon->getId() << std::endl;
