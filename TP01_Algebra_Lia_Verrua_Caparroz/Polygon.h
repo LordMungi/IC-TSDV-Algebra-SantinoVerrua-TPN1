@@ -1,6 +1,6 @@
 #pragma once
-#include "raylib.h"
 #include <Vector>
+#include "Collision.h"
 
 struct Line {
 

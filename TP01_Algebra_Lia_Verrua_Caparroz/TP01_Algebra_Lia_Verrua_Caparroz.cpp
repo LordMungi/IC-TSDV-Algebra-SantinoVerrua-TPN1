@@ -2,7 +2,6 @@
 #include "raylib.h"
 #include "Polygon.h"
 #include "Point.h"
-#include "Collision.h"
 
 //------------------------------------------------------------------------------------
 //							Instrucciones
